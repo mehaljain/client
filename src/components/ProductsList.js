@@ -44,7 +44,7 @@ function ProductsList() {
       return null;
     };
 
-    fetch("http://localhost:5000/api/skincare")
+    fetch("https://hs-project-server.onrender.com/api/skincare")
       .then((res) => res.json())
       .then((data) => {
         const arr = Array.isArray(data) ? data : (data.products || []);
@@ -58,7 +58,7 @@ function ProductsList() {
       })
       .catch(() => setSkincare([]));
 
-    fetch("http://localhost:5000/api/haircare")
+    fetch("https://hs-project-server.onrender.com/api/haircare")
       .then((res) => res.json())
       .then((data) => {
         const arr = Array.isArray(data) ? data : (data.products || []);
