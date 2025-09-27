@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://hs-project-server.onrender.com";
 
 export default function ProductCard({ product }) {
   // Helper to get image src
