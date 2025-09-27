@@ -6,15 +6,21 @@ const API_BASE = "https://hs-project-server.onrender.com";
 export default function ProductCard({ product }) {
   // Helper to get image src
   const getImageSrc = (img) => {
-    if (!img) return "";
-    // If image is a MongoDB ObjectId (24 hex chars)
+    if (!img) {
+      // Fallback if no image
+      return "https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=200&h=200&fit=crop&crop=center";
+    }
+    
+    // If the image is a MongoDB ObjectId (24 hex chars)
     if (typeof img === "string" && /^[a-f\d]{24}$/i.test(img)) {
       return `${API_BASE}/api/image/${img}`;
     }
-    // Fallback to previous logic
+
+    // If image is already a URL
     if (img.startsWith("http")) return img;
-    if (img.startsWith("/")) return `${API_BASE}${img}`;
-    return `${API_BASE}/${img}`.replace(/([^:]\/)+/g, "$1");
+
+    // If image is a relative path
+    return `${API_BASE}/uploads/${img}`;
   };
 
   // Calculate discount percentage if oldPrice exists
@@ -24,6 +30,7 @@ export default function ProductCard({ product }) {
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 relative">
+      
       {/* Discount Badge */}
       {discountPercentage && (
         <div className="absolute top-3 left-3 z-10">
@@ -45,14 +52,14 @@ export default function ProductCard({ product }) {
       {/* Product Image */}
       <div className="relative">
         <img 
-          src={`https://hs-project-server.onrender.com/uploads/${img}`}
-          alt={product.name} 
+          src={getImageSrc(product.images?.[0])}
+          alt={product.name || "Product Image"} 
           className="w-full h-48 object-cover"
           onError={(e) => {
             e.target.src = "https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=200&h=200&fit=crop&crop=center";
           }}
         />
-        
+
         {/* Product Type Badge */}
         <div className="absolute bottom-2 left-2">
           <span className="bg-white text-gray-800 text-xs px-2 py-1 rounded border">
@@ -63,9 +70,10 @@ export default function ProductCard({ product }) {
 
       {/* Product Info */}
       <div className="p-4">
-        <h3 className="text-sm font-medium text-gray-800 mb-2 line-clamp-2 h-10">{product.name}</h3>
-        
-        
+        <h3 className="text-sm font-medium text-gray-800 mb-2 line-clamp-2 h-10">
+          {product.name || "Unnamed Product"}
+        </h3>
+
         {/* Price */}
         <div className="mb-3">
           {product.oldPrice ? (
@@ -77,13 +85,18 @@ export default function ProductCard({ product }) {
             <span className="text-lg font-bold text-gray-900">₹{product.price}</span>
           )}
         </div>
-        
-        {/* Rating (if available) */}
+
+        {/* Rating */}
         {product.rating && (
           <div className="flex items-center mb-3">
             <div className="flex text-yellow-400">
               {[...Array(5)].map((_, i) => (
-                <svg key={i} className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'fill-current' : 'text-gray-300'}`} viewBox="0 0 20 20">
+                <svg 
+                  key={i} 
+                  className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'fill-current' : 'text-gray-300'}`} 
+                  viewBox="0 0 20 20"
+                  aria-hidden="true"
+                >
                   <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
                 </svg>
               ))}
@@ -91,7 +104,7 @@ export default function ProductCard({ product }) {
             <span className="text-sm text-gray-600 ml-1">{product.rating}</span>
           </div>
         )}
-        
+
         {/* CTA Button */}
         <Link 
           to={`/${product.type || 'products'}/${product._id || product.id}`}
