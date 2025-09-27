@@ -156,7 +156,7 @@ export default function SkincareDetailsAlt() {
                       }`}
                     >
                       <img
-                        src={`https://hs-project-server.onrender.com/uploads/${img}`}
+                        src={img}
                         alt={`${product.name} ${idx + 1}`}
                         className="w-full h-full object-cover"
                         onError={(e) => {

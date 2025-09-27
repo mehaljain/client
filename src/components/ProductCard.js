@@ -45,7 +45,7 @@ export default function ProductCard({ product }) {
       {/* Product Image */}
       <div className="relative">
         <img 
-          src={getImageSrc(product.images[0])}
+          src={`https://hs-project-server.onrender.com/uploads/${img}`}
           alt={product.name} 
           className="w-full h-48 object-cover"
           onError={(e) => {
