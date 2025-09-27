@@ -9,7 +9,7 @@ export default function SkincareDetailsAlt() {
   const [error, setError] = useState(null);
   const [selectedImage, setSelectedImage] = useState(0);
 
-  const API_BASE = "http://localhost:5000";
+  const API_BASE = "https://hs-project-server.onrender.com";
 
   useEffect(() => {
     if (!id) {

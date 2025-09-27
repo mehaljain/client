@@ -9,7 +9,7 @@ export default function Haircare() {
 
   useEffect(() => {
     setLoading(true);
-    axios.get("http://localhost:5000/api/haircare")
+    axios.get("https://hs-project-server.onrender.com/api/haircare")
       .then(res => {
         setProducts(res.data.map(p => ({ ...p, type: 'haircare' })));
         setLoading(false);

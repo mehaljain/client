@@ -15,8 +15,8 @@ export default function ShopAll() {
     const fetchProducts = async () => {
       try {
         const [skincareRes, haircareRes] = await Promise.all([
-          axios.get("http://localhost:5000/api/skincare"),
-          axios.get("http://localhost:5000/api/haircare")
+          axios.get("https://hs-project-server.onrender.com/api/skincare"),
+          axios.get("https://hs-project-server.onrender.com/api/haircare")
         ]);
 
         const skincareProducts = skincareRes.data.map(p => ({ ...p, type: 'skincare' }));

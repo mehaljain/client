@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function ProductsList() {
   const [skincare, setSkincare] = useState([]);
   const [haircare, setHaircare] = useState([]);
-  const API_BASE = "http://localhost:5000";
+  const API_BASE = "https://hs-project-server.onrender.com";
 
   useEffect(() => {
     // helper to prefix images if backend returns relative paths or ids

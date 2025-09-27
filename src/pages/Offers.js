@@ -6,7 +6,7 @@ export default function Offers() {
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(null);
 
-  const API_BASE = 'http://localhost:5000';
+  const API_BASE = 'https://hs-project-server.onrender.com';
 
   React.useEffect(() => {
     let cancelled = false;
