@@ -50,7 +50,7 @@ export default function About() {
         </div>
       </div>
 
-      {/* Hero Image Section */}
+      {/* Hero Image Section
       <div className="py-16 px-8">
         <div className="max-w-7xl mx-auto">
           <div className="relative rounded-lg overflow-hidden shadow-lg">
@@ -67,7 +67,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* About Content */}
       <div className="py-16 px-8 bg-gray-50">
@@ -150,7 +150,7 @@ export default function About() {
           <p className="text-lg text-gray-600 mb-8">
             Explore our collection and experience the difference of quality, care, and innovation in every bottle.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/shop-all">
               <button className="bg-green-500 text-white px-8 py-3 rounded-lg font-medium hover:bg-green-600 transition">
                 Shop Now
@@ -159,7 +159,7 @@ export default function About() {
             <button className="border-2 border-green-500 text-green-500 px-8 py-3 rounded-lg font-medium hover:bg-green-500 hover:text-white transition">
               Learn More
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

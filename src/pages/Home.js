@@ -43,13 +43,13 @@ export default function Home() {
             <ProductsList />
           </div>
           
-          <div className="text-center">
+          {/* <div className="text-center">
             <a href="/shop-all">
               <button className="bg-green-500 text-white px-12 py-4 rounded-lg font-bold text-lg hover:bg-green-600 transition">
                 VIEW ALL
               </button>
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
 
