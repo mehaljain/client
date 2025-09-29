@@ -1,6 +1,7 @@
 import React from 'react';
 import ProductsList from '../components/ProductsList';
 import OffersCarousel from '../components/OffersCarousel';
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -15,11 +16,11 @@ export default function Home() {
               <span className="text-4xl lg:text-5xl font-bold text-gray-800">Upto</span>
               <span className="text-5xl lg:text-6xl font-bold text-gray-800 ml-2">20% OFF</span>
             </div>
-            <a href="/shop-all">
-              <button className="bg-black text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-800 transition">
-                SHOP NOW
-              </button>
-            </a>
+<Link to="/shop-all">
+  <button className="bg-black text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-800 transition">
+    SHOP NOW
+  </button>
+</Link>
           </div>
           
           {/* Right Side - Offers Carousel (dynamic from backend with fallback) */}

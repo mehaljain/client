@@ -23,7 +23,7 @@ function App() {
           <Route path="/skincare" element={<Skincare />} />
           <Route path="/haircare/:id" element={<HaircareDetailsAlt />} /> {/* Route for haircare details */}
           <Route path="/skincare/:id" element={<SkincareDetailsAlt />} /> {/* Route for skincare details */}
-          <Route path="/about" element={<About />} /> {/* Route for About page */}
+          <Route path="/about" element={<About />} /> 
           <Route path="/offers" element={<Offers />} /> {/* Route for Offers page */}
           <Route path="/shop-all" element={<ShopAll />} /> {/* Route for Shop All page */}
         </Routes>
