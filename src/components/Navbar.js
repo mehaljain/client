@@ -7,12 +7,15 @@ export default function Navbar() {
   return (
     <nav className="bg-white shadow px-6 py-4">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <div className="text-black font-bold text-xl">
-          HSFreshFaces
+        <div className="flex items-center gap-2">
+          <img
+            src="/favicon.ico.png"
+            alt="HSFreshFaces Logo"
+            className="w-8 h-8 object-contain"
+          />
+          <span className="text-black font-bold text-xl">HSFreshFaces</span>
         </div>
 
-        {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           <Link to="/" className="text-black font-medium hover:text-gray-600 transition">HOME</Link>
           <Link to="/skincare" className="text-black font-medium hover:text-gray-600 transition">SKINCARE</Link>
@@ -21,7 +24,6 @@ export default function Navbar() {
           <Link to="/about" className="text-black font-medium hover:text-gray-600 transition">ABOUT US</Link>
         </div>
 
-        {/* Mobile Hamburger Button */}
         <div className="md:hidden">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -40,7 +42,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden mt-2 px-2 pb-4 space-y-1 bg-white shadow rounded-b-lg">
           <Link to="/" className="block text-black font-medium py-2 px-3 rounded hover:bg-gray-100">HOME</Link>
